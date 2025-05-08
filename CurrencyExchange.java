@@ -12,24 +12,20 @@ public class CurrencyExchange {
 
 class Exchange {
 
+    private static final Scanner sc = new Scanner(System.in);
+
     LocalDateTime DateTime = LocalDateTime.now();
     DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     String timeStamp = DateTime.format(format);
 
     public static float moneyToBeExchanged() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("please enter the amount of money you want to exchange: ");
-        float money = sc.nextFloat();
-        sc.close();
-        return money;
+        return sc.nextFloat();
     }
         
     public static float getRate() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("please enter the current exchange rate: ");
-        Float rate = sc.nextFloat();
-        sc.close();
-        return rate;
+        return sc.nextFloat();
     }
 
     public static float calculateExchange() {
