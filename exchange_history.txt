@@ -1,0 +1,5 @@
+Date & Time: 21-05-2025 22:52:12 | Amount: 100.00 USD -> 131193.42 IQD
+Date & Time: 21-05-2025 22:55:40 | Amount: 1.00 USD -> 0.89 EUR
+Date & Time: 21-05-2025 22:55:55 | Amount: 131311312.00 USD -> 116538784.00 EUR
+Date & Time: 21-05-2025 22:56:04 | Amount: 89898.00 USD -> 67189.77 GBP
+Date & Time: 21-05-2025 22:56:09 | Amount: 89898.00 USD -> 79784.48 EUR

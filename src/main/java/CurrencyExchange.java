@@ -6,11 +6,13 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import org.json.JSONObject;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.File;
 
 public class CurrencyExchange {
     public static void main(String[] args){
-        System.out.println(Exchange.calculateExchange());
-        System.out.println();
+        CurrencyExchangeUI.main(args);
     }
 }
 
@@ -70,6 +72,28 @@ class Exchange {
         float rate = getRate(originalCurrency, targetCurrency);
         String timeDate = getDateTime();
         System.out.println(timeDate);
-        return money * rate;
+        float result = money * rate;
+
+        // Save to file
+        saveExchangeToFile(timeDate, money, originalCurrency, targetCurrency, result);
+
+        return result;
+    }
+
+    private static void saveExchangeToFile(String dateTime, float amount, String originalCurrency, String targetCurrency, float convertedAmount) {
+        String fileName = "exchange_history.txt";
+        String entry = String.format(
+            "Date & Time: %s | Amount: %.2f %s -> %.2f %s%n",
+            dateTime, amount, originalCurrency, convertedAmount, targetCurrency
+        );
+        try {
+            File file = new File(fileName);
+            System.out.println("Saving to: " + new File(".").getAbsolutePath());
+            FileWriter writer = new FileWriter(file, true); // append mode
+            writer.write(entry);
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Failed to write to file: " + e.getMessage());
+        }
     }
 }
